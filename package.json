@@ -1,0 +1,11 @@
+{
+	"jam": {
+		"packageDir":	"public/js/lib",
+		"baseUrl":		"public/js",
+		"dependencies":	{
+			"jquery":	"1.9.1",
+			"underscore": null,
+			"backbone": null
+		}
+	}
+}
