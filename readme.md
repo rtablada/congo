@@ -20,16 +20,16 @@ To get this project running you will need the following:
 
 ## Getting up and running
 
-	1.	Install [NodeJS](http://nodejs.org)
-	2. 	Clone this repository `git clone git://github.com/rtablada/congo`
-	3.	Run `npm install express`
-	4.	Install Guard and the guard packages
-		*	`gem install guard`
-		*	`gem install rb-fsevent`
-		*	`gem install guard-coffeescript`
-		*	`gem install guard-livereload`
-	5. 	Install Jam - `npm install -g jamjs`
-	6.	Run `jam install`
-	7.	Run `guard`
-	8.	Run `node server`
-	8.	Edit away
+1.	Install [NodeJS](http://nodejs.org)
+2. 	Clone this repository `git clone git://github.com/rtablada/congo`
+3.	Run `npm install express`
+4.	Install Guard and the guard packages
+	*	`gem install guard`
+	*	`gem install rb-fsevent`
+	*	`gem install guard-coffeescript`
+	*	`gem install guard-livereload`
+5. 	Install Jam - `npm install -g jamjs`
+6.	Run `jam install`
+7.	Run `guard`
+8.	Run `node server`
+8.	Edit away
