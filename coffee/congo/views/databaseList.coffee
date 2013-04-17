@@ -1,5 +1,10 @@
 define ['backbone', 'congo/views/database'], (Backbone, DatabaseView) ->
 	DatabaseListView = Backbone.View.extend
+		initialize: () ->
+			@.collection.bind 'reset', @.render, this
+			@.collection.bind 'add', @.render, this
+			@.collection.bind 'remove', @.render, this
+
 		tagName: "table"
 
 		className: "table table-striped"
@@ -7,8 +12,10 @@ define ['backbone', 'congo/views/database'], (Backbone, DatabaseView) ->
 		render: () ->
 			items = []
 
-			for i in [0...5]
-				itemView = new DatabaseView();
+			@.collection.each (item) ->
+				itemView = new DatabaseView
+					model: item
+
 				items.push itemView.render().el
 
 			@.$el.html items

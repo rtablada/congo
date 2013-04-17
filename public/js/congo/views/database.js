@@ -14,9 +14,7 @@ define(['backbone', 'congo/models/database'], function(Backbone, DatabaseModel) 
     render: function() {
       var compiled, template;
       template = $("#database-list-template").html();
-      compiled = _.template(template, {
-        name: "Templated Name"
-      });
+      compiled = _.template(template, this.model.toJSON());
       this.$el.html(compiled);
       return this;
     }

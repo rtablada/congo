@@ -1,7 +1,7 @@
 define ['backbone', 'congo/models/database'], (Backbone, DatabaseModel) ->
 	DatabaseView = Backbone.View.extend
 		model: DatabaseModel
-		
+
 		tagName: "tr"
 
 		events:
@@ -13,8 +13,7 @@ define ['backbone', 'congo/models/database'], (Backbone, DatabaseModel) ->
 
 		render: () ->
 			template = $("#database-list-template").html()
-			compiled = _.template template,
-				name: "Templated Name"
+			compiled = _.template template, @.model.toJSON()
 			@.$el.html(compiled)
 			@
 

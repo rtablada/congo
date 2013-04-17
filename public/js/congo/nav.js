@@ -1,7 +1,10 @@
 
 define(['backbone'], function(Backbone) {
-  var BreadcrumbView;
-  BreadcrumbView = Backbone.View.extend({
+  var NavigationView;
+  NavigationView = Backbone.View.extend({
+    initialize: function() {
+      return this.render();
+    },
     render: function() {
       this.$el.html('<li><h3><a href="#">DATABASES</a></h3></li>');
       return this;
@@ -14,5 +17,5 @@ define(['backbone'], function(Backbone) {
       return alert('hello!');
     }
   });
-  return BreadcrumbView;
+  return NavigationView;
 });
