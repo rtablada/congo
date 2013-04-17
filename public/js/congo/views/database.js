@@ -1,8 +1,7 @@
 
-define(['backbone', 'congo/models/database'], function(Backbone, DatabaseModel) {
+define(['backbone', 'congo/models/database'], function(Backbone) {
   var DatabaseView;
   DatabaseView = Backbone.View.extend({
-    model: DatabaseModel,
     tagName: "tr",
     events: {
       "click button": "removeDatabase"

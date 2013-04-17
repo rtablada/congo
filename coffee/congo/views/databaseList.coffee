@@ -1,5 +1,7 @@
 define ['backbone', 'congo/views/database', 'congo/views/databaseOptions'], (Backbone, DatabaseView, DatabaseOptionsView) ->
 	DatabaseListView = Backbone.View.extend
+		el: "#database-list"
+
 		initialize: () ->
 			@.collection.bind 'reset', @.render, @
 			@.collection.bind 'add', @.render, @
@@ -20,12 +22,10 @@ define ['backbone', 'congo/views/database', 'congo/views/databaseOptions'], (Bac
 			@.collection.each (item) =>
 				itemView = new DatabaseView
 					model: item
-
-				@.$el.append itemView.render().el
-
-
-			$("#database-list").html @.el
-
+				items.push itemView.render().el
+			
+			@.$el.html items
+			
 			@
 
 	return DatabaseListView

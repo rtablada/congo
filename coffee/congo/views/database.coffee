@@ -1,7 +1,5 @@
-define ['backbone', 'congo/models/database'], (Backbone, DatabaseModel) ->
+define ['backbone', 'congo/models/database'], (Backbone) ->
 	DatabaseView = Backbone.View.extend
-		model: DatabaseModel
-
 		tagName: "tr"
 
 		events:

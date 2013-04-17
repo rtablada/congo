@@ -11,7 +11,7 @@ define [
 			Congo.databases = new Congo.DatabaseCollection()
 
 			# Views
-			crumbView = new Congo.NavigationView
+			Congo.breadcrumbs = new Congo.NavigationView
 				el: "#breadcrumbs"
 			Congo.databaseList = new Congo.DatabaseListView
 				collection: Congo.databases

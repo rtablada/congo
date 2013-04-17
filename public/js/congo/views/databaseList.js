@@ -2,6 +2,7 @@
 define(['backbone', 'congo/views/database', 'congo/views/databaseOptions'], function(Backbone, DatabaseView, DatabaseOptionsView) {
   var DatabaseListView;
   DatabaseListView = Backbone.View.extend({
+    el: "#database-list",
     initialize: function() {
       this.collection.bind('reset', this.render, this);
       this.collection.bind('add', this.render, this);
@@ -25,9 +26,9 @@ define(['backbone', 'congo/views/database', 'congo/views/databaseOptions'], func
         itemView = new DatabaseView({
           model: item
         });
-        return _this.$el.append(itemView.render().el);
+        return items.push(itemView.render().el);
       });
-      $("#database-list").html(this.el);
+      this.$el.html(items);
       return this;
     }
   });
