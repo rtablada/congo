@@ -5,16 +5,19 @@ define ['backbone', 'congo/models/database'], (Backbone, DatabaseModel) ->
 		tagName: "tr"
 
 		events:
-			"click a": "sayHello"
-			"click button": "sayHello"
+			"click button": "removeDatabase"
 
-		sayHello: ->
-			alert "hello again"
+
+		removeDatabase: () ->
+			confirmed = confirm("Delete this database? That's a bit looney...")
+			if confirmed
+				@.model.destroy()
+				Congo.databases.remove @.model
 
 		render: () ->
 			template = $("#database-list-template").html()
 			compiled = _.template template, @.model.toJSON()
-			@.$el.html(compiled)
+			@.$el.html compiled
 			@
 
 	return DatabaseView

@@ -5,11 +5,15 @@ define(['backbone', 'congo/models/database'], function(Backbone, DatabaseModel) 
     model: DatabaseModel,
     tagName: "tr",
     events: {
-      "click a": "sayHello",
-      "click button": "sayHello"
+      "click button": "removeDatabase"
     },
-    sayHello: function() {
-      return alert("hello again");
+    removeDatabase: function() {
+      var confirmed;
+      confirmed = confirm("Delete this database? That's a bit looney...");
+      if (confirmed) {
+        this.model.destroy();
+        return Congo.databases.remove(this.model);
+      }
     },
     render: function() {
       var compiled, template;

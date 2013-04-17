@@ -4,17 +4,17 @@ define(['backbone', 'congo/nav', 'congo/views/databaseList', 'congo/collections/
   Congo = {
     init: function() {
       var crumbView;
-      Congo.database = new Congo.DatabaseCollection();
+      Congo.databases = new Congo.DatabaseCollection();
       crumbView = new Congo.NavigationView({
         el: "#breadcrumbs"
       });
       Congo.databaseList = new Congo.DatabaseListView({
-        collection: Congo.database
+        collection: Congo.databases
       });
       return Congo.start();
     },
     start: function() {
-      return Congo.database.fetch();
+      return Congo.databases.fetch();
     }
   };
   Congo.NavigationView = NavigationView;

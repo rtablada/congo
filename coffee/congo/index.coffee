@@ -1,20 +1,26 @@
-define ['backbone', 'congo/nav', 'congo/views/databaseList', 'congo/collections/databases'], (Backbone, NavigationView, DatabaseListView, DatabaseCollection) ->
+define [
+	'backbone',
+	'congo/nav',
+	'congo/views/databaseList',
+	'congo/collections/databases'
+],
+(Backbone, NavigationView, DatabaseListView, DatabaseCollection) ->
 	Congo =
 		init: () ->
 			# Data
-			Congo.database = new Congo.DatabaseCollection()
+			Congo.databases = new Congo.DatabaseCollection()
 
 			# Views
 			crumbView = new Congo.NavigationView
 				el: "#breadcrumbs"
 			Congo.databaseList = new Congo.DatabaseListView
-				collection: Congo.database
+				collection: Congo.databases
 
 			# Let's get it started
 			Congo.start()
 
 		start: () ->
-			Congo.database.fetch()
+			Congo.databases.fetch()
 
 	Congo.NavigationView = NavigationView
 	Congo.DatabaseListView = DatabaseListView

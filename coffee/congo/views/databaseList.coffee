@@ -1,13 +1,18 @@
-define ['backbone', 'congo/views/database'], (Backbone, DatabaseView) ->
+define ['backbone', 'congo/views/database', 'congo/views/databaseOptions'], (Backbone, DatabaseView, DatabaseOptionsView) ->
 	DatabaseListView = Backbone.View.extend
 		initialize: () ->
-			@.collection.bind 'reset', @.render, this
-			@.collection.bind 'add', @.render, this
-			@.collection.bind 'remove', @.render, this
+			@.collection.bind 'reset', @.render, @
+			@.collection.bind 'add', @.render, @
+			@.collection.bind 'remove', @.render, @
+			@.renderOptionsView()
 
 		tagName: "table"
 
 		className: "table table-striped"
+
+		renderOptionsView: () ->
+			optionsView = new DatabaseOptionsView
+				el: "#database-options"
 
 		render: () ->
 			items = []
