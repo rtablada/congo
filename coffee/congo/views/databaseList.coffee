@@ -17,13 +17,12 @@ define ['backbone', 'congo/views/database', 'congo/views/databaseOptions'], (Bac
 		render: () ->
 			items = []
 
-			@.collection.each (item) ->
+			@.collection.each (item) =>
 				itemView = new DatabaseView
 					model: item
 
-				items.push itemView.render().el
+				@.$el.append itemView.render().el
 
-			@.$el.html items
 
 			$("#database-list").html @.el
 

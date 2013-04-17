@@ -17,16 +17,16 @@ define(['backbone', 'congo/views/database', 'congo/views/databaseOptions'], func
       });
     },
     render: function() {
-      var items;
+      var items,
+        _this = this;
       items = [];
       this.collection.each(function(item) {
         var itemView;
         itemView = new DatabaseView({
           model: item
         });
-        return items.push(itemView.render().el);
+        return _this.$el.append(itemView.render().el);
       });
-      this.$el.html(items);
       $("#database-list").html(this.el);
       return this;
     }
